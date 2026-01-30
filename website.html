@@ -26,7 +26,7 @@
     }
 
     .navbar {
-      position: relative;
+      position: fixed;
       top: 0;
       left: 0;
       right: 0;
@@ -57,9 +57,10 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: auto;
       padding: 20px 20px;
+      margin-top: 80px;
     }
 
     /* About */
@@ -89,6 +90,58 @@
       margin-top: 10px;
     }
 
+    .profile a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .profile a:hover {
+      color: gray;
+    }
+
+    .pub-links {
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-right: 8px;
+      border-radius: 20px;
+      background: #e9ecf2;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .tag:hover {
+      background: #007acc;
+      color: white;
+    }
+
+    .video-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .video-card {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 220px;
+      border-radius: 12px;
+    }
+
+    .video-card p {
+      margin-top: 8px;
+      color: gray;
+    }
+
     .social-icons {
       margin-top: 15px;
     }
@@ -107,7 +160,8 @@
 
     /* Sections */
     .section {
-      margin-top: 60px;
+      padding: 35px 0;
+      border-top: 1.5px solid #e5e7eb;
     }
 
     .section h2 {
@@ -259,6 +313,7 @@
     <a href="#about">About</a>
     <a href="#projects">Publications</a>
     <a href="#experience">Experience</a>
+    <a href="#hobby">Hobby</a>
     <a href="https://emanuelecuzzocrea.github.io/PDFs/Cuzzocrea_Emanuele_CV.pdf" target="_blank" class="cv-button">CV</a>
     <span class="toggle-btn" onclick="toggleDarkMode()">🌙</span>
   </div>
@@ -270,31 +325,36 @@
       <img src="Figs/Self.jpeg" alt="Your Photo">
       <div>
         <h1>Emanuele Cuzzocrea</h1>
-        
-        <div class="education">
-          <p><i>Ph.D. Student in Robotics and Intelligent Machines (2025-Present), IIT Genoa</i></p>
-          <p><i>M.Sc. Automation and Robotics Eng. (2022-2025), Univ. of Naples Federico II</i></p>
-          <p><i>B.Sc. Automation Eng. (2019-2022), Univ. of Naples Federico II</i></p>
-        </div>
 
         <p>
-          I am currently a Ph.D. student in Robotics and Intelligent Machines at the Italian Institute of
-          Technology (IIT) in Genoa, within the Humanoid & Human Centered Mechatronics (HHCM) Lab,
-          under the supervision of <b>Dr. Nikolaos Tsagarakis</b>. My research focuses on the application of
-          foundation models to legged robotics, with particular emphasis on loco-manipulation and navigation
-          tasks. During my Master’s studies, I conducted research at the PRISMA Lab, where I contributed
-          to the hardware construction of the SOLO 12 quadruped robot and carried out my thesis, titled
-          “<i>Studying Locomotion Gaits for Quadruped Robots in Push-and-Slide Tasks</i>”, supervised by <b>Prof.
-          Fabio Ruggiero</b>. My research interests include legged robotics, loco-manipulation, navigation and AI.
-          Outside of robotics, I enjoy speedcubing, tennis, golf, chess, drawing, and video game development.
-
+          I am currently a Ph.D. student in Robotics and Intelligent Machines at the
+          <a href="https://www.iit.it" target="_blank">
+          Italian Institute of Technology (IIT)</a>
+          in Genoa, within the
+          <a href="https://hhcm.iit.it/" target="_blank">
+          Humanoid & Human Centered Mechatronics (HHCM)</a> Lab ,
+          under the supervision of
+          <a href="https://www.iit.it/it/people-profile/-/people/nikos-tsagarakis" target="_blank">
+          <b>Dr. Nikolaos Tsagarakis</b></a>. My research focuses on the application of
+          foundation models (i.e., LLM/VLM/VLA) to legged and hybrid wheeled-legged robots, with particular emphasis on loco-manipulation
+          and navigation tasks.
         </p>
-        <!--div class="social-icons">
-          <a href="https://www.linkedin.com/in/emanuele-cuzzocrea-351b5124b/">🔗</a>
-          <a href="https://github.com/EmanueleCuzzocrea">🐙</a>
-          <a href="https://www.youtube.com/@emanuelecuzzocrea">▶️</a>
-          <a href="mailto:emanuele24c@gmail.com">📧</a>
-        </div-->
+
+        <p>
+          During my Master’s studies, I conducted research at the
+          <a href="https://prisma.dieti.unina.it/" target="_blank">
+          PRISMA Lab</a> in Naples, where I contributed to the hardware construction of the
+          <a href="https://solo.pal-robotics.com/solo" target="_blank">
+          SOLO 12</a> quadruped robot and carried out my thesis, titled
+          “<i>Analysis of Quadruped Robot Gaits in Push-and-Slide Interaction Tasks</i>”, supervised by
+          <a href="https://www.fabioruggiero.name/web/index.php/ita/" target="_blank">
+          <b>Prof. Fabio Ruggiero</b></a>.
+        </p>
+        
+        <p>
+          My research interests include legged robots, foundation models, loco-manipulation and navigation.
+          Outside of robotics, I enjoy speedcubing, tennis, golf, chess, drawing, and video game development.
+        </p>
 
         <div class="social-icons">
           <a href="https://www.linkedin.com/in/emanuele-cuzzocrea-351b5124b" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -312,9 +372,16 @@
       <div class="card">
         <img src="Figs/anymal_d.jpeg" alt="Paper" class="pub-img">
         <div>
-          <h3>Analysing Locomotion Gaits for Quadruped Robots in Push-and-Slide Tasks</h3>
+          <h3>Analysis of Quadruped Robot Gaits in Push-and-Slide Interaction Tasks</h3>
           <p><i>Emanuele Cuzzocrea, Michele Avagnale, Pierluigi Arpenti, Fabio Ruggiero</i></p>
-          <p><i>Submitted to IEEE Robotics and Automation Letters (RA-L), August 2025</i></p>
+          <p><i>Submitted to IEEE Robotics and Automation Letters (RA-L), January 2026</i></p>
+        
+          <!-- Tags -->
+          <div class="pub-links">
+            <a href="PDFs/Analysis_of_Quadruped_Robot_Gaits_in_Push-and-Slide_Interaction_Tasks.pdf" target="_blank" class="tag">Paper</a>
+            <a href="https://youtu.be/x4gGUtggFPs" target="_blank" class="tag">Video</a>
+           <!-- <a href="#" target="_blank" class="tag">Code</a>-->
+          </div>
         </div>
       </div>
     </div>
@@ -326,7 +393,7 @@
       <div class="card">
         <img src="Figs/iit.png" alt="IIT" class="exp-img">
         <div>
-          <h3>PhD Student @ IIT Genoa</h3>
+          <h3>PhD Student in Robotics and Intelligent Machines. @ IIT Genoa</h3>
           <p>Supervisor: Dr. Nikolaos Tsagarakis</p>
           <p>Working on loco-manipulation and navigation tasks for legged robots<br>
             using foundation models.</p>
@@ -347,7 +414,7 @@
       <div class="card">
         <img src="Figs/unina.png" alt="UNINA" class="exp-img">
         <div>
-          <h3>M.Sc. Automation & Robotics Eng. @ Univ. of Naples Federico II</h3>
+          <h3>M.Sc. Automation & Robotics Engineering @ Univ. of Naples Federico II</h3>
           <p>Supervisor: Prof. Fabio Ruggiero</p>
           <p>Graduation grade: 110/110 cum laude.</p>
         </div>
@@ -357,7 +424,7 @@
       <div class="card">
         <img src="Figs/unina.png" alt="UNINA" class="exp-img">
         <div>
-          <h3>B.Sc. Automation Eng. @ Univ. of Naples Federico II</h3>
+          <h3>B.Sc. Automation Engineering @ Univ. of Naples Federico II</h3>
           <p>Supervisor: Prof. Luigi Villani</p>
           <p>Graduation grade: 110/110 cum laude.</p>
         </div>
@@ -372,6 +439,28 @@
         </div>
         <span>Sep 2014 - Jul 2019</span>
       </div>
+
+    </div>
+
+    <!-- Hobby -->
+    <div class="section" id="hobby">
+      <h2>Hobby</h2>
+        <div class="video-grid">
+        
+        <div class="video-card">
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/iLNwPj2mjEQ?si=8rkRq6SpxIo8v8oU"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        </div>
+
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID"
+            allowfullscreen></iframe>
+          <p>Robotics experiments</p>
+        </div>
 
     </div>
   </div>
