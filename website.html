@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emanuele Cuzzocrea - Website</title>
+
+  <!-- Font Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      line-height: 1.6;
+      background: #fdfdfd;
+      color: #1a1a1a;
+      transition: background 0.5s ease, color 0.5s ease;
+      .dark-mode .card h3,
+      .dark-mode .card p,
+      .dark-mode .card span {
+        color: black;
+      }
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 20px;
+      /*box-shadow: 0 2px 8px rgba(0,0,0,0.1);*/
+      border-bottom: 1px solid lightgray;
+      z-index: 10;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+      transition: 0.3s;
+    }
+
+    .navbar a:hover {
+      color: gray;
+    }
+
+    .toggle-btn {
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 20px 20px;
+      margin-top: 80px;
+    }
+
+    /* About */
+    .profile {
+      display: flex;
+      align-items: flex-start;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .profile img {
+      width: 300px;
+      border-radius: 12px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .profile h1 {
+      margin-top: -10px;
+      margin-bottom: 0px;
+      font-size: 32px;
+      color: black;
+    }
+
+    .profile p {
+      text-align: justify;
+      margin-top: 10px;
+    }
+
+    .profile a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .profile a:hover {
+      color: gray;
+    }
+
+    .pub-links {
+      margin-top: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-right: 8px;
+      border-radius: 20px;
+      background: #e9ecf2;
+      color: #333;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .tag:hover {
+      background: #007acc;
+      color: white;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .video-card {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      height: 260px;
+      border: none;
+      border-radius: 12px;
+    }
+
+    .video-card p {
+      margin-top: 8px;
+      color: gray;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      margin-right: 12px;
+      text-decoration: none;
+      font-size: 20px;
+      color: black;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: gray;
+    }
+
+    /* Sections */
+    .section {
+      border-top: 1.5px solid #e5e7eb;
+    }
+
+    .section h2 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: black;
+    }
+
+    /* Cards */
+    .card {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 20px;
+      margin-bottom: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    /*.card:hover {
+      transform: translateY(-4px);
+    }*/
+
+    /*.card img {
+      width: 120px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+      margin-right: 20px;
+    }*/
+
+    .pub-img {
+      width: 200px;
+      height: auto;
+      border-radius: 12px;
+      margin-right: 20px;
+    }
+  
+    /* Immagini Experience */
+    .exp-img {
+      width: 120px;
+      height: auto;
+      border-radius: 12px;
+      margin-right: 20px;
+    }
+  
+    /* Responsive */
+    @media (max-width: 768px) {
+      .pub-img, .exp-img {
+        width: 100px;
+      }
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 18px;
+      color: black;
+    }
+
+    .card p {
+      margin: 5px 0;
+      color: gray;
+    }
+
+    .card span {
+      font-size: 14px;
+      color: gray;
+      margin-left: auto;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 60px;
+      font-size: 14px;
+      color: gray;
+    }
+
+    /* Dark mode */
+    .dark-mode {
+      background: #121212;
+      color: #f1f1f1;
+    }
+
+    .dark-mode .navbar {
+      background: #1e1e1e;
+    }
+
+    .dark-mode .navbar a {
+      color: #f1f1f1;
+    }
+    
+    .dark-mode .card {
+      background: white;   /* sfondo bianco */
+      color: black;        /* testo nero */
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* ombra */
+    }
+
+    /* Titoli delle sezioni in dark mode */
+    .dark-mode .section h2 {
+      color: white;
+    }
+
+    /* Titoli generali in dark mode */
+    .dark-mode h1 {
+      color: white;
+    }
+
+    /* Solo h3 fuori dalle card diventano bianchi */
+    .dark-mode h3 {
+      color: white;
+    }
+
+    .dark-mode .card h3,
+    .dark-mode .card p,
+    .dark-mode .card span {
+      color: black; /* testo nero dentro le card */
+    }
+
+    /* Link social in dark mode */
+    .dark-mode .social-icons a {
+      color: white;
+    }
+
+    .social-icons a {
+      color: inherit; /* usa il colore attuale del testo */
+      text-decoration: none;
+      font-size: 1.5rem; /* dimensione icona */
+      margin: 0 10px;
+      transition: color 0.3s ease;
+    }
+
+    .education p {
+      color: gray;
+      font-style: italic;
+      margin: 0px 0;
+      font-size: 0.95rem;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <a href="#about">About</a>
+    <a href="#projects">Publications</a>
+    <a href="#experience">Experience</a>
+    <a href="#hobby">Hobby</a>
+    <a href="https://emanuelecuzzocrea.github.io/PDFs/Cuzzocrea_Emanuele_CV.pdf" target="_blank" class="cv-button">CV</a>
+    <span class="toggle-btn" onclick="toggleDarkMode()">🌙</span>
+  </div>
+
+  <div class="container">
+
+    <!-- About -->
+    <div class="profile" id="about">
+      <img src="Figs/Self.jpeg" alt="Your Photo">
+      <div>
+        <h1>Emanuele Cuzzocrea</h1>
+
+        <p>
+          I am currently a first year PhD student in Robotics and Intelligent Machines at the
+          <a href="https://www.iit.it" target="_blank">
+          Italian Institute of Technology (IIT)</a>
+          in Genoa, within the
+          <a href="https://hhcm.iit.it/" target="_blank">
+          Humanoid & Human Centered Mechatronics (HHCM)</a> Lab,
+          under the supervision of
+          <a href="https://www.iit.it/it/people-profile/-/people/nikos-tsagarakis" target="_blank">
+          <b>Dr. Nikolaos Tsagarakis</b></a>. My research focuses on the application of
+          foundation models (i.e., LLM/VLM/VLA) to legged and hybrid wheeled-legged robots, with particular emphasis on loco-manipulation
+          and navigation tasks.
+        </p>
+
+        <p>
+          During my Master’s studies, I conducted research at the
+          <a href="https://prisma.dieti.unina.it/" target="_blank">
+          PRISMA Lab</a> in Naples, where I contributed to the hardware construction of the
+          <a href="https://solo.pal-robotics.com/solo" target="_blank">
+          SOLO 12</a> quadruped robot and carried out my thesis, titled
+          “<i>Analysis of Quadruped Robot Gaits in Push-and-Slide Interaction Tasks</i>”, supervised by
+          <a href="https://www.fabioruggiero.name/web/index.php/ita/" target="_blank">
+          <b>Prof. Fabio Ruggiero</b></a>, conducted on the
+          <a href="https://www.anybotics.com/robotics/anymal/" target="_blank">
+          ANYmal-D</a> quadruped robot by
+          <a href="https://www.iit.it" target="_blank">
+          ANYbotics</a> and
+          submitted to IEEE Robotics and Automation Letters (RA-L) in January 2026.
+        </p>
+        
+        <p>
+          My research interests include legged robots, foundation models, loco-manipulation and navigation.
+          Outside of robotics, I enjoy speedcubing, tennis, golf, chess, drawing, and video game development.
+        </p>
+
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/emanuele-cuzzocrea-351b5124b" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="https://github.com/EmanueleCuzzocrea" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.youtube.com/@emanuelecuzzocrea" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="mailto:emanuele24c@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Publications -->
+    <div class="section" id="projects">
+      <h2>Publications</h2>
+      <div class="card">
+        <img src="Figs/anymal_d.jpeg" alt="Paper" class="pub-img">
+        <div>
+          <h3>Analysis of Quadruped Robot Gaits in Push-and-Slide Interaction Tasks</h3>
+          <p>Emanuele Cuzzocrea, Michele Avagnale, Pierluigi Arpenti, Fabio Ruggiero</p>
+          <p>Submitted to IEEE Robotics and Automation Letters (RA-L), January 2026</p>
+        
+          <!-- Tags -->
+          <div class="pub-links">
+            <a href="PDFs/Analysis_of_Quadruped_Robot_Gaits_in_Push-and-Slide_Interaction_Tasks.pdf" target="_blank" class="tag">Paper</a>
+            <a href="https://youtu.be/x4gGUtggFPs" target="_blank" class="tag">Video</a>
+           <!-- <a href="#" target="_blank" class="tag">Code</a>-->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Experience -->
+    <div class="section" id="experience">
+      <h2>Experience</h2>
+
+      <div class="card">
+        <img src="Figs/iit.png" alt="IIT" class="exp-img">
+        <div>
+          <h3>PhD Student in Robotics and Intelligent Machines @ IIT Genoa</h3>
+          <p>Supervisor: Dr. Nikolaos Tsagarakis</p>
+          <p>Working on loco-manipulation and navigation tasks for legged robots<br>
+            using foundation models.</p>
+        </div>
+        <span>Nov 2025 - Present</span>
+      </div>
+
+      <div class="card">
+        <img src="Figs/prisma_lab.png" alt="PRISMA Lab" class="exp-img">
+        <div>
+          <h3>PRISMA Lab Internship @ Univ. of Naples Federico II</h3>
+          <p>Supervisor: Prof. Fabio Ruggiero</p>
+          <p>Worked on loco-manipulation tasks with the ANYmal-D quadruped robot.</p>
+        </div>
+        <span>Sep 2024 - Aug 2025</span>
+      </div>
+
+      <div class="card">
+        <img src="Figs/unina.png" alt="UNINA" class="exp-img">
+        <div>
+          <h3>M.Sc. Automation & Robotics Engineering @ Univ. of Naples Federico II</h3>
+          <p>Supervisor: Prof. Fabio Ruggiero</p>
+          <p>Graduation grade: 110/110 cum laude.</p>
+        </div>
+        <span>Sep 2022 - Mar 2025</span>
+      </div>
+
+      <div class="card">
+        <img src="Figs/unina.png" alt="UNINA" class="exp-img">
+        <div>
+          <h3>B.Sc. Automation Engineering @ Univ. of Naples Federico II</h3>
+          <p>Supervisor: Prof. Luigi Villani</p>
+          <p>Graduation grade: 110/110 cum laude.</p>
+        </div>
+        <span>Sep 2019 - Sep 2022</span>
+      </div>
+
+      <div class="card">
+        <img src="Figs/da_procida.png" alt="DA PROCIDAUNINA" class="exp-img">
+        <div>
+          <h3>Scientific High School "G. Da Procida" @ Salerno</h3>
+          <p>Graduation grade: 100/100 cum laude.</p>
+        </div>
+        <span>Sep 2014 - Jul 2019</span>
+      </div>
+
+    </div>
+
+    <!-- Hobby -->
+    <div class="section" id="hobby">
+      <h2>Hobby</h2>
+        <div class="video-grid">
+        
+        <div class="video-card">
+          <p>Rubik's Cube in under 9 Seconds</p>
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/iLNwPj2mjEQ?si=8rkRq6SpxIo8v8oU"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        </div>
+        
+        <div class="video-card">
+          <p>Speedcuber VS Robot</p>
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/RFRJTMzbFaA?si=HhqptVSZl7AMFoTl"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        </div>
+
+        <div class="video-card">
+          <p>Home Made Humanoid Robot</p>
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/XppVLeXLuZk?si=mBUiIN3UXLJj1rq0"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        </div>
+
+        <div class="video-card">
+          <p>Video Game Development</p>
+          <iframe width="560" height="315"
+          src="https://www.youtube.com/embed/BZA2m8B9X2k?si=kAAZH2lIfKBhe7GQ"
+          title="YouTube video player" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen></iframe>
+        </div>
+
+
+
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      let toggleBtn = document.querySelector(".toggle-btn");
+      if (document.body.classList.contains("dark-mode")) {
+        toggleBtn.textContent = "☀️";
+      } else {
+        toggleBtn.textContent = "🌙";
+      }
+    }
+  </script>
+
+</body>
+</html>
