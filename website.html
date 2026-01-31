@@ -48,7 +48,7 @@
     }
 
     .navbar a:hover {
-      color: gray;
+      color:  #007acc;
     }
 
     .toggle-btn {
@@ -96,7 +96,7 @@
     }
 
     .profile a:hover {
-      color: gray;
+      color:  #007acc;
     }
 
     .pub-links {
@@ -156,7 +156,7 @@
     }
 
     .social-icons a:hover {
-      color: gray;
+      color:  #007acc;
     }
 
     /* Sections */
@@ -181,6 +181,19 @@
       padding: 20px;
       margin-bottom: 20px;
       transition: transform 0.2s ease;
+    }
+
+    .card-content {
+      max-width: calc(100% - 350px);
+    }
+
+    .card-content a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .card-content a:hover {
+      color:  #007acc;
     }
 
     /*.card:hover {
@@ -304,6 +317,111 @@
       font-size: 0.95rem;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Timeline */
+.timeline {
+  margin-top: 10px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 16px;
+  padding: 6px 0 22px 0;
+}
+
+.timeline-marker {
+  position: relative;
+  width: 34px;          /* colonna icona */
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.timeline-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #e9f0ff;  /* pallino azzurrino */
+  color: #2b5cff;
+  margin-top: 2px;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 30px;
+  bottom: -22px;
+  width: 2px;
+  background: #e6e6e6;
+}
+
+.timeline-content {
+  flex: 1;
+  min-width: 0; /* evita overflow */
+}
+
+.timeline-title {
+  font-weight: 700;
+  font-size: 18px;
+  color: black;
+  line-height: 1.2;
+}
+
+.timeline-subtitle {
+  color: gray;
+  margin-top: 4px;
+}
+
+.timeline-date {
+  color: gray;
+  margin-top: 2px;
+  font-size: 14px;
+}
+
+.timeline-desc {
+  margin-top: 10px;
+  color: gray;
+  max-width: 720px; /* evita righe troppo lunghe */
+}
+
+/* link dentro descrizioni (stile pulito, senza underline fisso) */
+.timeline-desc a {
+  color: inherit;
+  text-decoration: underline;
+}
+.timeline-desc a:hover {
+  color:  #007acc;
+}
+
+
+
+/* Dark mode */
+.dark-mode .timeline-title {
+  color: white;
+}
+.dark-mode .timeline-icon {
+  background: rgba(255,255,255,0.12);
+  color: #9bb7ff;
+}
+.dark-mode .timeline-line {
+  background: rgba(255,255,255,0.15);
+}
+
+
   </style>
 </head>
 <body>
@@ -313,6 +431,7 @@
     <a href="#about">About</a>
     <a href="#projects">Publications</a>
     <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
     <a href="#hobby">Hobby</a>
     <a href="https://emanuelecuzzocrea.github.io/PDFs/Cuzzocrea_Emanuele_CV.pdf" target="_blank" class="cv-button">CV</a>
     <span class="toggle-btn" onclick="toggleDarkMode()">🌙</span>
@@ -391,61 +510,283 @@
       </div>
     </div>
 
-    <!-- Experience -->
+    <!-- Experience 
     <div class="section" id="experience">
       <h2>Experience</h2>
 
       <div class="card">
         <img src="Figs/iit.png" alt="IIT" class="exp-img">
-        <div>
-          <h3>PhD Student in Robotics and Intelligent Machines @ IIT Genoa</h3>
-          <p>Supervisor: Dr. Nikolaos Tsagarakis</p>
-          <p>Working on loco-manipulation and navigation tasks for legged robots<br>
-            using foundation models.</p>
+        
+        <div class="card-content">
+          <h3>PhD Student at Italian Institute of Technology (IIT)</h3>
+          <p>Italian Institute of Technology (IIT), Genoa</p>
+          <p>Working on loco-manipulation and navigation tasks for legged robots
+            using foundation models under the supervision of
+            <a href="https://www.iit.it/it/people-profile/-/people/nikos-tsagarakis" target="_blank">
+            Dr. Nikolaos Tsagarakis</a>.</p>
         </div>
+
         <span>Nov 2025 - Present</span>
       </div>
 
       <div class="card">
         <img src="Figs/prisma_lab.png" alt="PRISMA Lab" class="exp-img">
-        <div>
-          <h3>PRISMA Lab Internship @ Univ. of Naples Federico II</h3>
-          <p>Supervisor: Prof. Fabio Ruggiero</p>
-          <p>Worked on loco-manipulation tasks with the ANYmal-D quadruped robot.</p>
+        <div class="card-content">
+          <h3>PRISMA Lab Internship</h3>
+          <p>PRISMA Lab, University of Naples Federico II</p>
+          <p>For my Master's Thesis, I worked on loco-manipulation tasks with the
+            <a href="https://www.anybotics.com/robotics/anymal/" target="_blank">
+            ANYmal-D</a> quadruped robot under the supervision of
+            <a href="https://www.fabioruggiero.name/web/index.php/ita/" target="_blank">
+            Prof. Fabio Ruggiero</a>.</p>
         </div>
         <span>Sep 2024 - Aug 2025</span>
       </div>
 
       <div class="card">
+        <img src="Figs/prisma_lab.png" alt="PRISMA Lab" class="exp-img">
+        <div class="card-content">
+          <h3>Construction of the SOLO 12 Quadruped Robot</h3>
+          <p>PRISMA Lab, University of Naples Federico II</p>
+          <p>Contributed to the hardware construction of the open-source
+            <a href="https://solo.pal-robotics.com/solo" target="_blank">
+            SOLO 12</a> quadruped robot by
+            <a href="https://pal-robotics.com/" target="_blank">
+            PAL Robotics</a> under the supervision of
+            <a href="https://www.fabioruggiero.name/web/index.php/ita/" target="_blank">
+            Prof. Fabio Ruggiero</a>.</p>
+        </div>
+        <span>Feb 2024 - Jul 2024</span>
+      </div>
+
+    </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="section" id="experience">
+  <h2>Experience</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-briefcase"></i></span>
+        <span class="timeline-line"></span>
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">PhD Student at Italian Institute of Technology (IIT)</div>
+        <div class="timeline-subtitle">Italian Institute of Technology (IIT), Genoa</div>
+        <div class="timeline-date">Nov 2025 – Present</div>
+        <div class="timeline-desc">
+          At the
+          <a href="https://hhcm.iit.it/" target="_blank">
+          Humanoid & Human Centered Mechatronics (HHCM)</a> Lab,
+          I am working on loco-manipulation and navigation tasks
+          for legged robots, leveraging foundation models, under the supervision of
+          <a href="https://www.iit.it/it/people-profile/-/people/nikos-tsagarakis" target="_blank">
+          Dr. Nikolaos Tsagarakis</a>.
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-briefcase"></i></span>
+        <span class="timeline-line"></span>
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">PRISMA Lab Internship</div>
+        <div class="timeline-subtitle">PRISMA Lab, University of Naples Federico II</div>
+        <div class="timeline-date">Sep 2024 – Aug 2025</div>
+        <div class="timeline-desc">
+          For my Master's Thesis, I worked on loco-manipulation tasks with the
+          <a href="https://www.anybotics.com/robotics/anymal/" target="_blank">
+          ANYmal-D</a> quadruped robot under the supervision of
+          <a href="https://www.fabioruggiero.name/web/index.php/ita/" target="_blank">
+          Prof. Fabio Ruggiero</a>.
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-briefcase"></i></span>
+        <!-- ultima voce: niente linea sotto -->
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">Construction of the SOLO 12 Quadruped Robot</div>
+        <div class="timeline-subtitle">PRISMA Lab, University of Naples Federico II</div>
+        <div class="timeline-date">Feb 2024 – Jul 2024</div>
+        <div class="timeline-desc">
+          Contributed to the hardware construction of the open-source
+          <a href="https://solo.pal-robotics.com/solo" target="_blank">
+          SOLO 12</a> quadruped robot by
+          <a href="https://pal-robotics.com/" target="_blank">
+          PAL Robotics</a> under the supervision of
+          <a href="https://www.fabioruggiero.name/web/index.php/ita/" target="_blank">
+          Prof. Fabio Ruggiero</a>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+    <!-- Education 
+    <div class="section" id="education">
+      <h2>Education</h2>
+
+      <div class="card">
+        <img src="Figs/iit.png" alt="IIT" class="exp-img">
+        
+        <div class="card-content">
+          <h3>PhD Student in Robotics and Intelligent Machines</h3>
+          <p>Italian Institute of Technology (IIT), Genoa</p>
+          <p>Humanoid & Human Centered Mechatronics (HHCM) Lab</p>
+        </div>
+
+        <span>Nov 2025 - Present</span>
+      </div>
+
+      <div class="card">
         <img src="Figs/unina.png" alt="UNINA" class="exp-img">
-        <div>
-          <h3>M.Sc. Automation & Robotics Engineering @ Univ. of Naples Federico II</h3>
-          <p>Supervisor: Prof. Fabio Ruggiero</p>
-          <p>Graduation grade: 110/110 cum laude.</p>
+        <div class="card-content">
+          <h3>M.Sc. in Automation & Robotics Engineering</h3>
+          <p>University of Naples Federico II</p>
+          <p>Graduation grade: 110/110 cum laude</p>
         </div>
         <span>Sep 2022 - Mar 2025</span>
       </div>
 
       <div class="card">
         <img src="Figs/unina.png" alt="UNINA" class="exp-img">
-        <div>
-          <h3>B.Sc. Automation Engineering @ Univ. of Naples Federico II</h3>
-          <p>Supervisor: Prof. Luigi Villani</p>
-          <p>Graduation grade: 110/110 cum laude.</p>
+        <div class="card-content">
+          <h3>B.Sc. in Automation Engineering</h3>
+          <p>University of Naples Federico II</p>
+          <p>Graduation grade: 110/110 cum laude</p>
         </div>
         <span>Sep 2019 - Sep 2022</span>
       </div>
 
       <div class="card">
         <img src="Figs/da_procida.png" alt="DA PROCIDAUNINA" class="exp-img">
-        <div>
-          <h3>Scientific High School "G. Da Procida" @ Salerno</h3>
-          <p>Graduation grade: 100/100 cum laude.</p>
+        <div class="card-content">
+          <h3>Scientific High School</h3>
+          <p>Giovanni Da Procida, Salerno</p>
+          <p>Graduation grade: 100/100 cum laude</p>
         </div>
         <span>Sep 2014 - Jul 2019</span>
       </div>
 
+    </div>-->
+
+  <!-- Education -->
+  <div class="section" id="education">
+  <h2>Education</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        <span class="timeline-line"></span>
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">PhD Student in Robotics and Intelligent Machines</div>
+        <div class="timeline-subtitle">Italian Institute of Technology (IIT), Genoa</div>
+        <div class="timeline-date">Nov 2025 – Present</div>
+        <div class="timeline-desc">
+          Humanoid & Human Centered Mechatronics (HHCM) Lab
+        </div>
+      </div>
     </div>
+
+
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        <span class="timeline-line"></span>
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">M.Sc. in Automation & Robotics Engineering</div>
+        <div class="timeline-subtitle">University of Naples Federico II</div>
+        <div class="timeline-date">Sep 2022 – Mar 2025</div>
+        <div class="timeline-desc">
+          Graduation grade: 110/110 cum laude
+        </div>
+      </div>
+    </div>
+
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        <span class="timeline-line"></span>
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">B.Sc. in Automation Engineering</div>
+        <div class="timeline-subtitle">University of Naples Federico II</div>
+        <div class="timeline-date">Sep 2019 – Sep 2022</div>
+        <div class="timeline-desc">
+          Graduation grade: 110/110 cum laude
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="timeline-item">
+      <div class="timeline-marker">
+        <span class="timeline-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+        <!-- ultima voce: niente linea sotto -->
+      </div>
+
+      <div class="timeline-content">
+        <div class="timeline-title">Scientific High School</div>
+        <div class="timeline-subtitle">Giovanni Da Procida, Salerno</div>
+        <div class="timeline-date">Sep 2014 – Jul 2019</div>
+        <div class="timeline-desc">
+          Graduation grade: 100/100 cum laude
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+
+
 
     <!-- Hobby -->
     <div class="section" id="hobby">
